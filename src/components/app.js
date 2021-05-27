@@ -5,6 +5,7 @@ export default class App extends Component {
     return (
       <div className='app'>
         <h1>Logo</h1>
+        <h1>Logo</h1>
       </div>
     );
   }
