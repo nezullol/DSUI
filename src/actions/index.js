@@ -1,6 +1,7 @@
 import {SET_RECENT_POSTS} from './types'
 
 import axios from 'axios';
+import { arrayInsert } from 'redux-form';
 
 
 export function fetchRecentPosts() {
@@ -23,7 +24,12 @@ export function fetchPostsWithQuery(query) {
    { 
        //preform our requests here
     axios.get(`https://api.dailysmarty.com/search?q=${query}`).then(response => {
-        console.log(response.data.posts);
+        const results = response.data.posts
+
+        for (var i = 0; i < results.length; i++) {
+            console.log(results[i].title);
+        }
+        
         // dispatch({
         //     type: SET_RECENT_POSTS,
         //     payload: response.data.posts
