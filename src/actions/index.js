@@ -17,3 +17,18 @@ export function fetchRecentPosts() {
 
     }
 }
+
+export function fetchPostsWithQuery(query) {
+    return function(dispatch)
+   { 
+       //preform our requests here
+    axios.get(`https://api.dailysmarty.com/search?q=${query}`).then(response => {
+        console.log(response.data.posts);
+        // dispatch({
+        //     type: SET_RECENT_POSTS,
+        //     payload: response.data.posts
+        // })
+    })
+
+    }
+}
