@@ -1,0 +1,32 @@
+.search-bar {
+    .search-bar__wrapper{
+        display: grid;
+        width: 100%;
+        grid-row-gap: 23px;
+        	input {
+		padding-left: 35px;
+		color: $color-gray-one;
+		box-shadow: 2px 3px 20px 1px rgba(0, 0, 0, 0.1);
+		border: none;
+		border-radius: 5px;
+		font-size: 40px;
+		height: 118px;
+		transition: all .1s ease-in-out;
+
+		&::placeholder {
+			color: $color-gray-two
+		}
+		&:focus {
+			outline: none;
+			box-shadow: 2px 2px 20px 1px rgba(0, 0, 0, 0.3);
+		}
+	}
+
+    p {
+        text-align: right;
+        font-size: 14px;
+        color: $color-gray-two;
+    }
+}
+    }
+
