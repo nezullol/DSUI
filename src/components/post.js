@@ -35,16 +35,16 @@ class Post extends Component {
 	render() {
 		if (this.props.type == 'recent') {
 			return (
-				<li className='recent-posts'>
-					<div className='recent-posts___title'>{this.props.title}</div>
-					<div className='recent-posts___topics'>{this.renderTopics()}</div>
+				<li className='recent-post'>
+					<div className='recent-post___title'>{this.props.title}</div>
+					<div className='recent-post___topics'>{this.renderTopics()}</div>
 				</li>
 			);
 		} else if (this.props.type == 'result') {
 			return (
 				<li className='result-post'>
-					<div className='result-posts__topics'>{this.renderTopics()}</div>
-					<div className='result-posts__title'>
+					<div className='result-post__topics'>{this.renderTopics()}</div>
+					<div className='result-post__title'>
 						<a
 							href={this.props.url_for_post}
 							onMouseEnter={() => this.setState({ height: 70 })}
