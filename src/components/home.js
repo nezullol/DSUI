@@ -17,12 +17,10 @@ import * as actions from '../actions'
 
   render() {
     return (
-      <div className='app'>
-        <div><Logo /></div>
-        <div><SearchBar
-         onSubmit={(query) => this.handleSearchBarSubmit(query)}/>
-         </div>
-        <div><Recent /></div>
+      <div className='home'>
+        <Logo />
+        <SearchBar onSubmit={(query) => this.handleSearchBarSubmit(query)}/>
+        <Recent />
       </div>
     );
   }
