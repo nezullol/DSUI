@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import AnimateHeight from 'react-animate-height';
+import AnimateHeight from "react-animate-height";
 class Post extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			height: 0
+			height: 0,
 		};
 	}
 
@@ -33,24 +33,22 @@ class Post extends Component {
 		return links;
 	}
 	render() {
-		if (this.props.type == 'recent') {
+		if (this.props.type == "recent") {
 			return (
 				<li className='recent-post'>
 					<div className='recent-post___title'>{this.props.title}</div>
 					<div className='recent-post___topics'>{this.renderTopics()}</div>
 				</li>
 			);
-		} else if (this.props.type == 'result') {
+		} else if (this.props.type == "result") {
 			return (
-				<li className='result-post'>
+				<li
+					className='result-post'
+					onMouseEnter={() => this.setState({ height: 70 })}
+					onMouseLeave={() => this.setState({ height: 0 })}>
 					<div className='result-post__topics'>{this.renderTopics()}</div>
 					<div className='result-post__title'>
-						<a
-							href={this.props.url_for_post}
-							onMouseEnter={() => this.setState({ height: 70 })}
-							onMouseLeave={() => this.setState({ height: 0 })}>
-							{this.props.title}
-						</a>
+						<a href={this.props.url_for_post}>{this.props.title}</a>
 					</div>
 					<AnimateHeight duration={500} height={this.state.height}>
 						<div className='result-posts__links'>{this.renderLinks()}</div>
