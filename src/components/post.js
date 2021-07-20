@@ -22,14 +22,26 @@ class Post extends Component {
 
 	getNameForPostLink(str){
 		var n = str.lastIndexOf("/");
-		var res = str.substring(n + 1, str.length)
+		var link = str.substring(n + 1, str.length)
 		if ((n+1) == str.length) {
-			res = str.slice(0, n)
-			n = res.lastIndexOf("/");
-			res = str.substring(n+1, str.length - 1)
-			return res;
+			link = str.slice(0, n)
+			n = link.lastIndexOf("/");
+			link = str.substring(n+1, str.length - 1)
 		}
-		return res;
+
+		if (link.includes('.html')) {
+			link = link.substring(0, link.length -5)
+		}
+		if (link.includes('.htm')) {
+			link = link.substring(0, link.length -4)
+		}
+		if (link.includes('.org')) {
+			link = link.substring(0, link.length -4)
+		}
+		if (link.includes('.io')) {
+			link = link.substring(0, link.length -3)
+		}
+		return link;
 	}
 
 	renderLinks() {
