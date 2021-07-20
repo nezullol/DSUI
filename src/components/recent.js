@@ -16,6 +16,7 @@ class RecentPosts extends Component {
 				return <Post type='recent' {...post} key={index} />;
 			}
 		});
+	
 		return posts;
 	};
 	render() {

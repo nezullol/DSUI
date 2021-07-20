@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import AnimateHeight from "react-animate-height";
+import AnimateHeight from 'react-animate-height';
 class Post extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			height: 0,
+			height: 0
 		};
 	}
 
@@ -20,26 +20,26 @@ class Post extends Component {
 		return topics;
 	}
 
-	getNameForPostLink(str){
-		var n = str.lastIndexOf("/");
-		var link = str.substring(n + 1, str.length)
-		if ((n+1) == str.length) {
-			link = str.slice(0, n)
-			n = link.lastIndexOf("/");
-			link = str.substring(n+1, str.length - 1)
+	getNameForPostLink(str) {
+		var n = str.lastIndexOf('/');
+		var link = str.substring(n + 1, str.length);
+		if (n + 1 == str.length) {
+			link = str.slice(0, n);
+			n = link.lastIndexOf('/');
+			link = str.substring(n + 1, str.length - 1);
 		}
 
 		if (link.includes('.html')) {
-			link = link.substring(0, link.length -5)
+			link = link.substring(0, link.length - 5);
 		}
 		if (link.includes('.htm')) {
-			link = link.substring(0, link.length -4)
+			link = link.substring(0, link.length - 4);
 		}
 		if (link.includes('.org')) {
-			link = link.substring(0, link.length -4)
+			link = link.substring(0, link.length - 4);
 		}
 		if (link.includes('.io')) {
-			link = link.substring(0, link.length -3)
+			link = link.substring(0, link.length - 3);
 		}
 		return link;
 	}
@@ -50,24 +50,25 @@ class Post extends Component {
 				<div className='post-link' key={index}>
 					<div className='post-link__box' />
 					<div className='post-link__link'>
-						<a href={post_link.link_url}>
-						{this.getNameForPostLink(post_link.link_url)}
-						</a>
+						<a href={post_link.link_url}>{this.getNameForPostLink(post_link.link_url)}</a>
 					</div>
 				</div>
 			);
 		});
+		if (links == 0){
+			return <div className="no-conent"> No Posts </div>
+		}
 		return links;
 	}
 	render() {
-		if (this.props.type == "recent") {
+		if (this.props.type == 'recent') {
 			return (
 				<li className='recent-post'>
 					<div className='recent-post___title'>{this.props.title}</div>
 					<div className='recent-post___topics'>{this.renderTopics()}</div>
 				</li>
 			);
-		} else if (this.props.type == "result") {
+		} else if (this.props.type == 'result') {
 			return (
 				<li
 					className='result-post'
